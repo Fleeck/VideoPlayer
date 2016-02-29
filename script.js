@@ -1,5 +1,5 @@
-$(document).ready(function () {
-  var video = $('#media-video').get(0);
+function VideoPlayer(playerId) {
+  var video = $(playerId).get(0);
   var currTime = $('#current-time').get(0);
   var isToggled = false;
 
@@ -77,7 +77,7 @@ $(document).ready(function () {
   function handleVolumeBar() {
     video.volume = $(this).get(0).value;
   }
-});
+}
 
 String.prototype.toMMSS = function() {
   var sec_num = parseInt(this, 10);
@@ -94,3 +94,7 @@ String.prototype.toMMSS = function() {
   var time = +minutes + ':' + seconds;
   return time;
 };
+
+$(document).ready(function(){
+  var videoPlayer = new VideoPlayer('#media-video');
+});
