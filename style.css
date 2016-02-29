@@ -1,0 +1,47 @@
+#video-controls {
+  z-index: 2147483647;
+}
+#media-player {
+  position: relative;
+  width: 50%;
+}
+#mute {
+  position: relative;
+  right: 10%;
+  width:30px;
+}
+
+#video-duration {
+  position: relative;
+}
+
+#volume-bar {
+  position: relative;
+  width: 10%;
+  left: 6%;
+}
+
+#seek-bar {
+  position: relative;
+  width: 50% !important;
+  left: 5%;
+}
+#full-screen {
+  position: relative;
+  left: 23%;
+}
+video::-webkit-media-controls-enclosure {
+  display: none !important;
+}
+#media-video {
+  z-index: 1;
+}
+#video-icon {
+  display:none;
+  position: absolute;
+  z-index: 2;
+  color: #ffcc99;
+  opacity: 0.3;
+  left: 45%;
+  top: 35%
+}
