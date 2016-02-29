@@ -8,30 +8,30 @@
   <script src='jquery-2.2.1.min.js'></script>
   <script src='script.js'></script>
   <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 </head>
 
 <body>
-  <div id='media-player'>
-    <div class="fa fa-pause fa-5x" id='video-icon'></div>
-    <video id='media-video' autoplay muted onended="playToRepeat()">
-      <source src='vid.mp4' type='video/mp4'>
-    </video>
-    <!-- Controls -->
-    <div class="row" id='video-controls'>
-      <i id="play-pause" class="fa fa-pause fa-2x col-md-2"></i>
-      <input type="range" id="volume-bar" min="0" max="1" step="0.1" value="1">
-      <i class="fa fa-volume-off fa-2x" id="mute"></i>
-      <input type="range" id="seek-bar" min='0' max='100' value='0' step='1'>
-      <i class="fa fa-arrows-alt fa-2x" id="full-screen"></i>
-      <span class='time-container'>
-        <span id="current-time"></span>
-        |
-        <span id="video-duration"></span>
-      </span>
-      <div>
-        Time left:
-        <span id="left-duration"></span>
+  <div class='container-fluid'>
+    <div id='media-player'>
+      <div class="fa fa-pause fa-5x" id='video-icon'></div>
+      <video id='media-video' autoplay muted onended="playToRepeat()">
+        <source src='vid.mp4' type='video/mp4'>
+      </video>
+      <!-- Controls -->
+      <div class="row" id='video-controls'>
+        <i id="play-pause" class="fa fa-pause fa-2x col-md-2"></i>
+        <i class="col-md-2 fa fa-volume-off fa-2x" id="mute"></i>
+        <input type="range" class="col-md-2" id="volume-bar" min="0" max="1" step="0.1" value="1">
+        <span class='col-md-3 time-container'>
+          <button class='btn btn-default btn-xs' id='toggle-duration'>Toggle</button>
+          <span id="current-time"></span>
+          |
+          <span id="video-duration"></span>
+        </span>
+        <input type="range" class="col-md-4" id="seek-bar" min='0' max='100' value='0' step='1'>
+        <i class="fa fa-arrows-alt fa-2x" id="full-screen"></i>
       </div>
     </div>
   </div>
