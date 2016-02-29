@@ -1,43 +1,39 @@
 #play-pause {
   width: 24px;
-  padding-left:0;
+  padding-left: 0;
 }
-
 input {
-  padding:0 !important;
+  padding: 0px!important;
 }
-
+.time-container {
+  margin-left: 15px;
+}
 #video-controls {
   z-index: 2147483647;
   margin: 0!important;
+  height: 40px;
 }
-
 #media-player {
-  position: relative;
   width: 51%;
+  padding-top: 10px;
 }
-
 #mute {
   position: relative;
-  width:30px;
+  width: 24px;
 }
-
 #video-duration {
   position: relative;
 }
-
 #volume-bar {
   position: relative;
   width: 10%;
   left: 2%;
 }
-
 #seek-bar {
-  width:50%
+  width: 45%
 }
-
 #full-screen {
-  float:right;
+  float: right;
 }
 video::-webkit-media-controls-enclosure {
   display: none !important;
@@ -46,11 +42,11 @@ video::-webkit-media-controls-enclosure {
   z-index: 1;
 }
 #video-icon {
-  display:none;
+  display: none;
   position: absolute;
   z-index: 2;
   color: #ffcc99;
   opacity: 0.3;
-  left: 45%;
-  top: 35%
+  left: 25%;
+  top: 18%
 }

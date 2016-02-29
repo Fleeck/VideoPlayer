@@ -1,6 +1,7 @@
 $(document).ready(function() {
   var video = $('#media-video').get(0);
   var currTime = $('#current-time').get(0);
+  var isToggled = false;
 
   $('#media-video, #play-pause, #video-icon').click(function() {
     if (video.paused) {
@@ -41,8 +42,12 @@ $(document).ready(function() {
   });
 
   $('#toggle-duration').click(function() {
-    if (video.currentTime < video.duration - currTime) {
-      currTime = video.duration - currTime;
+    if (!isToggled) {
+      $('#current-time').attr('id', 'left-duration');
+      isToggled = true;
+    } else {
+      $('#left-duration').attr('id', 'current-time');
+      isToggled = false;
     }
   });
 
@@ -55,11 +60,12 @@ $(document).ready(function() {
   $('#media-video').bind("timeupdate", function() {
     $('#video-duration').text(((video.duration).toFixed()).toMMSS());
     $('#current-time').text((video.currentTime.toFixed()).toMMSS());
-    $('#left-duration').text(((video.duration - video.currentTime).toFixed()).toMMSS());
-    $('#seek-bar').val(video.currentTime*100 / video.duration);
+    $('#left-duration').text('-' + ((video.duration - video.currentTime).toFixed()).toMMSS());
+    $('#seek-bar').val(video.currentTime * 100 / video.duration);
   });
 
 });
+
 
 function playToRepeat() {
   $('#play-pause, #video-icon').removeClass('fa-play fa-pause');
@@ -67,14 +73,18 @@ function playToRepeat() {
   $('#video-icon').css('display', 'initial');
 }
 
-String.prototype.toMMSS = function () {
-    var sec_num = parseInt(this, 10);
-    var hours   = Math.floor(sec_num / 3600);
-    var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
-    var seconds = sec_num - (hours * 3600) - (minutes * 60);
+String.prototype.toMMSS = function() {
+  var sec_num = parseInt(this, 10);
+  var hours = Math.floor(sec_num / 3600);
+  var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
+  var seconds = sec_num - (hours * 3600) - (minutes * 60);
 
-    if (minutes < 10) {minutes = "0"+minutes;}
-    if (seconds < 10) {seconds = "0"+seconds;}
-    var time    = +minutes+':'+seconds;
-    return time;
+  if (minutes < 10) {
+    minutes = "0" + minutes;
+  }
+  if (seconds < 10) {
+    seconds = "0" + seconds;
+  }
+  var time = +minutes + ':' + seconds;
+  return time;
 };
