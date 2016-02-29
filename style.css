@@ -1,24 +1,25 @@
 #play-pause {
-  width: 30px;
+  width: 24px;
+  padding-left:0;
+}
+
+input {
+  padding:0 !important;
 }
 
 #video-controls {
   z-index: 2147483647;
-}
-#media-player {
-  position: relative;
-  width: 50%;
-}
-#mute {
-  position: relative;
-  right: 10%;
-  width:30px;
+  margin: 0!important;
 }
 
-.time-container {
+#media-player {
   position: relative;
-  right:60%;
-  top: -0.4em;
+  width: 51%;
+}
+
+#mute {
+  position: relative;
+  width:30px;
 }
 
 #video-duration {
@@ -28,17 +29,15 @@
 #volume-bar {
   position: relative;
   width: 10%;
-  left: 6%;
+  left: 2%;
 }
 
 #seek-bar {
-  position: relative;
-  width: 55% !important;
-  left: 15%;
+  width:50%
 }
+
 #full-screen {
-  position: relative;
-  left: 3.6em;
+  float:right;
 }
 video::-webkit-media-controls-enclosure {
   display: none !important;
