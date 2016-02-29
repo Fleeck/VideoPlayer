@@ -47,7 +47,8 @@ $(document).ready(function() {
   });
 
   $('#seek-bar').change(function() {
-    var time = video.duration * this.value;
+    var me = this;
+    var time = video.duration * this.value / 100;
     video.currentTime = time;
   });
 
@@ -55,7 +56,7 @@ $(document).ready(function() {
     $('#video-duration').text(((video.duration).toFixed()).toMMSS());
     $('#current-time').text((video.currentTime.toFixed()).toMMSS());
     $('#left-duration').text(((video.duration - video.currentTime).toFixed()).toMMSS());
-    $('#seek-bar').attr('value', video.currentTime / video.duration);
+    $('#seek-bar').val(video.currentTime*100 / video.duration);
   });
 
 });
@@ -64,7 +65,7 @@ function playToRepeat() {
   $('#play-pause, #video-icon').removeClass('fa-play fa-pause');
   $('#play-pause, #video-icon').addClass('fa-repeat');
   $('#video-icon').css('display', 'initial');
-};
+}
 
 String.prototype.toMMSS = function () {
     var sec_num = parseInt(this, 10);
