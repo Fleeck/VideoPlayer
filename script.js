@@ -52,9 +52,11 @@ function VideoPlayer(playerId) {
     if (!video.muted) {
       $('#media-video').prop('muted', true);
       $(this).toggleClass('fa-volume-up');
+      $('#volume-bar').val('0');
     } else {
       $('#media-video').prop('muted', false);
       $(this).toggleClass('fa-volume-up');
+      $('#volume-bar').val('100');
     }
   }
 
