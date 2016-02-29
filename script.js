@@ -2,7 +2,9 @@ function VideoPlayer(playerId) {
   var video = $(playerId).get(0);
   var currTime = $('#current-time').get(0);
   var isToggled = false;
+  var isMuted = false;
 
+  // Main Events
   $('#media-video, #play-pause, #video-icon').click(clickPlayPause);
   $('#mute').click(clickMuteButton);
   $('#full-screen').click(toggleFullscreen);
@@ -27,10 +29,10 @@ function VideoPlayer(playerId) {
   }
 
   function handleTimeUpdate() {
-      $('#video-duration').text(((video.duration).toFixed()).toMMSS());
-      $('#current-time').text((video.currentTime.toFixed()).toMMSS());
-      $('#left-duration').text('-' + ((video.duration - video.currentTime).toFixed()).toMMSS());
-      $('#seek-bar').val(video.currentTime * 100 / video.duration);
+    $('#video-duration').text(((video.duration).toFixed()).toMMSS());
+    $('#current-time').text((video.currentTime.toFixed()).toMMSS());
+    $('#left-duration').text('-' + ((video.duration - video.currentTime).toFixed()).toMMSS());
+    $('#seek-bar').val(video.currentTime * 100 / video.duration);
   }
 
   function handleSeekBar() {
@@ -78,6 +80,12 @@ function VideoPlayer(playerId) {
 
   function handleVolumeBar() {
     video.volume = $(this).get(0).value;
+    if (video.volume === 0) {
+      $('#mute').toggleClass('fa-volume-up');
+      isMuted = true;
+    } else if (!$('#mute').hasClass('fa-volume-up')) {
+      $('#mute').addClass('fa-volume-up');
+    }
   }
 }
 
@@ -97,6 +105,7 @@ String.prototype.toMMSS = function() {
   return time;
 };
 
-$(document).ready(function(){
+$(document).ready(function() {
+  // Class instance
   var videoPlayer = new VideoPlayer('#media-video');
 });
